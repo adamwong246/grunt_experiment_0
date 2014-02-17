@@ -2,7 +2,6 @@ module.exports = function(grunt) {
  
   // configure the tasks
   grunt.initConfig({
- 
     copy: {
       build: {
         cwd: 'source',
@@ -46,7 +45,7 @@ module.exports = function(grunt) {
       copy: {
         files: [ 'source/**', '!source/**/*.styl', '!source/**/*.coffee', '!source/**/*.jade' ],
         tasks: [ 'copy' ]
-      }
+      },      
     },
     connect: {
       server: {
@@ -56,6 +55,18 @@ module.exports = function(grunt) {
           hostname: '*'
         }
       }
+    },
+    
+    // None of these names matter!
+    // Everything important is defined in frontmatter.
+    new_blog_entry: {
+      dest: "source/_blog/_:subject/",
+      filename: "_:subject" //relative to the dest
+    },
+
+    build_blog: {
+      src: "source/_blog/*/",
+      dest: "build/blog/:year/:month/:day/:title"
     }
  
   });
@@ -78,6 +89,14 @@ module.exports = function(grunt) {
     'default',
     'Watches the project for changes, automatically builds them and runs a server.',
     [ 'build', 'connect', 'watch' ]
+  );
+
+  grunt.registerTask(
+    'new_blog_entry',
+    'Create a new blog entry.',
+    function(){
+      console.log("Hello World");
+    }
   );
 
 };
