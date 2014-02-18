@@ -91,12 +91,4 @@ module.exports = function(grunt) {
     [ 'build', 'connect', 'watch' ]
   );
 
-  grunt.registerTask(
-    'new_blog_entry',
-    'Create a new blog entry.',
-    function(){
-      console.log("Hello World");
-    }
-  );
-
 };
