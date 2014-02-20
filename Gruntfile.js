@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
  
-  // configure the tasks
   grunt.initConfig({
+
     copy: {
       build: {
         cwd: 'source',
@@ -10,11 +10,13 @@ module.exports = function(grunt) {
         expand: true
       },
     },
+
     clean: {
       build: {
         src: [ 'build' ]
       },
     },
+
     jade: {
       compile: {
         options: {
@@ -47,6 +49,7 @@ module.exports = function(grunt) {
         tasks: [ 'copy' ]
       },      
     },
+    
     connect: {
       server: {
         options: {
